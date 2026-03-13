@@ -6,3 +6,9 @@ requires-python = ">=3.12"
 dependencies = [
     "pytest>=8.4.2",
 ]
+
+[tool.coverage.run]
+source = ["src"]
+
+[tool.coverage.report]
+omit = ["tests/*", "src/log_and_print.py", "src/error_types.py", "src/constants/main_constants.py"]
