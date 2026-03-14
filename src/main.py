@@ -34,7 +34,7 @@ def main() -> None:
     all_sources: dict[str, TaskSource] = {}
     try:
         print(f"Sources: {list(all_sources.keys())}")
-        while command := input("Enter command: "):
+        while (command := input("Enter command: ")) != "exit":
             logging.info(command)
             match command:
                 case "make_source":
@@ -81,11 +81,10 @@ def main() -> None:
                     except (SourceError, TaskError) as e:
                         log_and_print(str(e), logging.ERROR)
                         continue
-                case "exit":
-                    exit(0)
                 case _:
                     log_and_print(f"Unknown command: {command}", logging.ERROR)
             print(f"Sources: {list(all_sources.keys())}")
+        logging.info("exit")
     except KeyboardInterrupt:
         logging.info("exit")
         exit(0)

@@ -16,7 +16,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['unknown', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_called_once_with('Unknown command: unknown', logging.ERROR)
             self.assertEqual(mock_info.call_args_list, [call('unknown'),
                                                         call('exit')])
@@ -27,7 +27,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['get_task', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_called_once_with("Source 'name' does not exist", logging.ERROR)
             self.assertEqual(mock_info.call_args_list, [call('get_task'),
                                                         call('exit')])
@@ -44,7 +44,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['make_source', 'file', 'get_task', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_called_once_with(ANY, logging.ERROR)
             self.assertEqual(mock_info.call_args_list, [call('make_source'),
                                                         call('get_task'),
@@ -62,7 +62,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['make_source', 'file', 'get_task', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_called_once_with(ANY, logging.ERROR)
             self.assertEqual(mock_info.call_args_list, [call('make_source'),
                                                         call('get_task'),
@@ -80,7 +80,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['make_source', 'file', 'get_task', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_not_called()
             self.assertEqual(mock_info.call_args_list, [call('make_source'),
                                                         call('get_task'),
@@ -98,7 +98,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['make_source', 'file', 'get_task', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_not_called()
             self.assertEqual(mock_info.call_args_list, [call('make_source'),
                                                         call('get_task'),
@@ -110,7 +110,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['get_all_tasks', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_called_once_with("Source 'name' does not exist", logging.ERROR)
             self.assertEqual(mock_info.call_args_list, [call('get_all_tasks'),
                                                         call('exit')])
@@ -127,7 +127,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['make_source', 'file', 'get_all_tasks', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_called_once_with(ANY, logging.ERROR)
             self.assertEqual(mock_info.call_args_list, [call('make_source'),
                                                         call('get_all_tasks'),
@@ -145,7 +145,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['make_source', 'file', 'get_all_tasks', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_called_once_with(ANY, logging.ERROR)
             self.assertEqual(mock_info.call_args_list, [call('make_source'),
                                                         call('get_all_tasks'),
@@ -163,7 +163,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['make_source', 'file', 'get_all_tasks', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_not_called()
             self.assertEqual(mock_info.call_args_list, [call('make_source'),
                                                         call('get_all_tasks'),
@@ -181,7 +181,7 @@ class MainTests(unittest.TestCase):
               patch('src.main.log_and_print') as mock_log_and_print,
               patch('src.main.logging.info') as mock_info):
             mock_input.side_effect = ['make_source', 'file', 'get_all_tasks', 'name', 'exit']
-            self.assertRaises(SystemExit, main)
+            main()
             mock_log_and_print.assert_not_called()
             self.assertEqual(mock_info.call_args_list, [call('make_source'),
                                                         call('get_all_tasks'),
