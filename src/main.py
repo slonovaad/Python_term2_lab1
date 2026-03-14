@@ -8,6 +8,12 @@ from src.error_types import SourceError, TaskError
 
 def check_source_name_exists(source_name: str, all_sources: dict[str, TaskSource], need_log_if_not: bool = False,
                              need_log: bool = False) -> bool:
+    """Проверка существования источника с введённым именем
+    :param source_name: имя источника
+    :param all_sources: словарь всех источников
+    :param need_log_if_not: нужно ли логирование, если не существует
+    :param need_log: нужно ли логирование, если существует
+    :return: True, если существует, False иначе"""
     res = source_name in all_sources
     if not res and need_log_if_not:
         log_and_print(f"Source '{source_name}' does not exist", logging.ERROR)
